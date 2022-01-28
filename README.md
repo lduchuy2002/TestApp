@@ -12,6 +12,9 @@ yarn add --dev husky
 git init
 yarn prepare
 
+scripts: 
+ "prepare": "husky install"
+
 ----------------------------------------------------------------------------------------------------
 
 3. Install babel
@@ -35,6 +38,12 @@ Add .eslintrc.json
     ]
   },
 
+
+scripts
+
+"lint": "eslint . --ext=js,jsx,ts,tsx --ignore-path .gitignore",
+"lint:fix": "eslint . --ext=js,jsx,ts,tsx --fix --ignore-path .gitignore",
+
 ----------------------------------------------------------------------------------------------------
 
 16. Install jest
@@ -45,7 +54,11 @@ yarn add --dev @types/jest ts-jest
 
 Add UnitTestConfig.tsx, __tests__/Paginator.spec.tsx, RandomUserList.spec.tsx , 
 
-add jest.congif.js
+add jest.congig.js
+
+scripts: "prepare": "husky install"
+
+
 
 ----------------------------------------------------------------------------------------------------
 
@@ -54,6 +67,12 @@ add jest.congif.js
 yarn add --dev prettier 
 
 add .prettierrc.json
+
+scripts:
+
+    "format": "prettier --write **/*.{js,jsx,ts,tsx,css,md,json} --ignore-path .gitignore",
+    "format:check": "prettier --check **/*.{js,jsx,ts,tsx,css,md,json} --ignore-path .gitignore",
+
 
 ----------------------------------------------------------------------------------------------------
 

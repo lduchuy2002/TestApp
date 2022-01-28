@@ -31,7 +31,6 @@ const RandomUserList = () => {
             columnResizeMode="fit"
             showGridlines
             scrollable
-            scrollHeight="450px"
             loading={isLoading}
           >
             <Column field="login.username" header="Username" sortable />

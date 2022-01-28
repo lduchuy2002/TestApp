@@ -37,13 +37,15 @@
     ]
   },
   "lint-staged": {
-  "src/**/*.{ts,tsx}": [
-    "eslint . --fix", "git add"
-  ],
+    "src/**/*.{ts,tsx}": [
+      "eslint . --fix",
+      "git add"
+    ]
+  },
   "husky": {
     "hooks": {
-    "pre-commit": "lint-staged"
-  }
+      "pre-commit": "lint-staged"
+    }
   },
   "browserslist": {
     "production": [

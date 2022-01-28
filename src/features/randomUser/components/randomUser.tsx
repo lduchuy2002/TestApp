@@ -33,7 +33,6 @@ const RandomUserList = () => {
             scrollable
             loading={isLoading}
           >
-            <Column field="login.username" header="Username" sortable />
             <Column
               header="Full Name"
               className="text-center"
@@ -41,6 +40,7 @@ const RandomUserList = () => {
                 <div className="text-primary">{`${data.name.title} ${data.name.first} ${data.name.last}`}</div>
               )}
             />
+            <Column field="login.username" header="Username" sortable />
             <Column
               align="center"
               header="Thumbnail"

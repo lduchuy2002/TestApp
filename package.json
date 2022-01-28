@@ -36,6 +36,15 @@
       "react-app/jest"
     ]
   },
+  "lint-staged": {
+  "src/**/*.{ts,tsx}": [
+    "eslint . --fix", "git add"
+  ],
+  "husky": {
+    "hooks": {
+    "pre-commit": "lint-staged"
+  }
+  },
   "browserslist": {
     "production": [
       ">0.2%",

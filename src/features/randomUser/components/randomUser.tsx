@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { DataTable } from 'primereact/datatable'
 import { Column } from 'primereact/column'
-import { Button } from 'primereact/button'
 import { fetchRandomUser } from '../randomUserSlice'
 import Paginator from './paginator'
 import { useAppDispatch, useAppSelector } from '../../../store/store'
 import { UserInformation } from '../../../models/UserModel'
 import { PaginateParams } from '../../../models/PaginateModel'
-import { sortUserListAction } from '../action'
 
 const RandomUserList = () => {
   const [paginate, setPaginate] = useState<PaginateParams>({
@@ -20,21 +18,9 @@ const RandomUserList = () => {
     dispatch(fetchRandomUser(paginate))
   }, [paginate, dispatch])
 
-  const onSortClick = (): void => {
-    dispatch(sortUserListAction())
-  }
   return (
     <div className="card p-10" data-testid="random-user-list">
-      <div className="card-header">
-        <h2 className="card-title text-left fw-900 my-3">
-          <Button
-            icon="pi pi-sort-alpha-down"
-            label="Sort Username"
-            className="ml-2 p-button-success"
-            onClick={onSortClick}
-          />
-        </h2>
-      </div>
+      <div className="card-header" />
       <div className="card-body">
         <div className="card-block">
           <DataTable
@@ -45,9 +31,10 @@ const RandomUserList = () => {
             columnResizeMode="fit"
             showGridlines
             scrollable
-            scrollHeight="300px"
+            scrollHeight="450px"
             loading={isLoading}
           >
+            <Column field="login.username" header="Username" sortable />
             <Column
               header="Full Name"
               className="text-center"
@@ -55,7 +42,6 @@ const RandomUserList = () => {
                 <div className="text-primary">{`${data.name.title} ${data.name.first} ${data.name.last}`}</div>
               )}
             />
-            <Column field="login.username" header="Username" />
             <Column
               align="center"
               header="Thumbnail"

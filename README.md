@@ -50,6 +50,7 @@ add jest.congif.js
 ----------------------------------------------------------------------------------------------------
 
 5. Install prettier 
+
 yarn add --dev prettier 
 
 add .prettierrc.json
